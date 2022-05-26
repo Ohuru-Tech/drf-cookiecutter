@@ -38,7 +38,7 @@ curl \\
   -X POST \\
   -H "Content-Type: application/json" \\
   {auth} \\
-  -d '{{"profile_pic": "some_pic.jpg"}}' \\
+  -d '{"profile_pic": "some_pic.jpg"}' \\
   "{origin}/v1/"
 """  # noqa
 
