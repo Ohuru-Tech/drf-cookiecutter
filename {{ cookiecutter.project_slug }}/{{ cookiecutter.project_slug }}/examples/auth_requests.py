@@ -10,13 +10,13 @@ user_register_curl = f"""
 curl \\
   -X POST \\
   -H "Content-Type: application/json" \\
-  -d '{{ \\
+  -d '{ 
       "name": "Jon Doe", \\
       "email": "jondoe@customer.com", \\
       "password1": "some_password", \\
       "password2": "some_password", \\
       "account_type": "general"
-    }}' \\
+    }' \\
   "{origin}/v1/"
 """  # noqa
 
