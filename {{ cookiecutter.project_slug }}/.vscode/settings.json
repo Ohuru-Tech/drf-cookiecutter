@@ -1,0 +1,24 @@
+{
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "python.sortImports.args": [
+    "--profile",
+    "black",
+    "--known-local-folder",
+    "{{ cookiecutter.project_slug }}"
+  ],
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+    "--line-length",
+    "79",
+    "--experimental-string-processing"
+  ],
+  "search.exclude": {
+    "**/.git": true,
+    "**/venv": true
+  }
+}
