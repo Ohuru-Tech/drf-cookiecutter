@@ -54,6 +54,7 @@ class Common(Configuration):
         # our apps
         "{{ cookiecutter.project_slug }}.apps.common.apps.CommonConfig",
         "{{ cookiecutter.project_slug }}.apps.accounts.apps.AccountsConfig",
+        "{{ cookiecutter.project_slug }}.apps.{{ cookiecutter.app_name }}.apps.{{ cookiecutter.app_name|capitalize }}Config",
     ]
 
     MIDDLEWARE = [

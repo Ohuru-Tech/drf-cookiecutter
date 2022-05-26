@@ -1,5 +1,8 @@
 {
-    "project_name": "my_project",
+    "app_name": "main",
+    "project_name": "My Project",
     "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+    "dev_db_url": "sqlite:///{{ cookiecutter.project_slug }}_dev.sqlite",
+    "prod_db_url": "psql://{{ cookiecutter.project_slug }}_user:test_password@127.0.0.1:5432/{{ cookiecutter.project_slug }}_db",
     "_copy_without_render": ["*.html", "*entrypoint.sh", "*tpl"]
 }
