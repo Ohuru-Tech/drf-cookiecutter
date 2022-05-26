@@ -10,13 +10,13 @@ user_register_curl = f"""
 curl \\
   -X POST \\
   -H "Content-Type: application/json" \\
-  -d '{ 
+  -d '{{ '{{' }} 
       "name": "Jon Doe", \\
       "email": "jondoe@customer.com", \\
       "password1": "some_password", \\
       "password2": "some_password", \\
       "account_type": "general"
-    }' \\
+    {{ '}}' }} \\
   "{origin}/v1/"
 """  # noqa
 
@@ -25,10 +25,10 @@ user_login_curl = f"""
 curl \\
   -X POST \\
   -H  "accept: application/json" \\
-  -d '{ 
+  -d '{{ '{{' }} 
     "email": "user@wew.com", \\
     "password": "password1234" \\
-  } \\'
+  {{ '}}' }} \\'
   "{origin}/v1/"
 """  # noqa
 
@@ -38,7 +38,7 @@ curl \\
   -X POST \\
   -H "Content-Type: application/json" \\
   {auth} \\
-  -d '{"profile_pic": "some_pic.jpg"}' \\
+  -d '{{ '{{' }}"profile_pic": "some_pic.jpg"{{ '}}' }} \\
   "{origin}/v1/"
 """  # noqa
 
@@ -47,7 +47,7 @@ user_password_reset_curl = f"""
 curl \\
   -X POST \\
   -H "Content-Type: application/json" \\
-  -d '{"email": "user@example.com"}' \\
+  -d '{{ '{{' }}"email": "user@example.com"{{ '}}' }} \\
   "{origin}/v1"
 """  # noqa
 
@@ -56,12 +56,12 @@ user_password_reset_confirm_curl = f"""
 curl \\
   -X POST \\
   -H "Content-Type: application/json" \\
-  -d '{
+  -d '{{ '{{' }}
     "new_password1": "dfkjsdlfsdf", \\
     "new_password2": "dfkjsdlfsdf", \\
     "token": "3434khj234-3432423", \\
     "uid": "1"
-  }' \\
+  {{ '}}' }} \\
   "{origin}/v1"
 """  # noqa
 
@@ -71,10 +71,10 @@ curl \\
   -X POST \\
   -H "Content-Type: application/json" \\
   {auth} \\
-  -d '{
+  -d '{{ '{{' }}
     "old_password": "dsdsds", \\
     "new_password1": "dfkjsdlfsdf", \\
     "new_password2": "dfkjsdlfsdf", \\
-  }' \\
+  {{ '}}' }} \\
   "{origin}/v1"
 """  # noqa
