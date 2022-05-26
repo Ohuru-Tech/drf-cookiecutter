@@ -1,0 +1,23 @@
+{% extends 'admin/change_form.html' %}
+
+{% block object-tools-items %}
+    {% for action in change_actions %}
+        <li>
+            <a href="{{ action.url }}">
+                {{ action.title }}
+            </a>
+        </li>
+    {% endfor %}
+    {{ block.super }}
+{% endblock %}
+
+{% block submit_buttons_bottom %}
+    {% if submit_buttons %}
+        <div class="submit-row">
+            {% for button in submit_buttons %}
+                <input type="submit" value="{{ button.title }}" name="{{ button.name }}">
+            {% endfor %}
+        </div>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
