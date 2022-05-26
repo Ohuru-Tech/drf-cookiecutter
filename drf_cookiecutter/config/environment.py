@@ -2,7 +2,6 @@ import os
 
 import environ
 
-
 env = environ.Env(DEBUG=(bool, False))
 
 current_path = environ.Path(__file__) - 1
