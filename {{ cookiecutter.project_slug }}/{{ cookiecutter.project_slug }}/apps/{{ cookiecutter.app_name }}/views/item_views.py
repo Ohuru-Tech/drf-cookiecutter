@@ -27,6 +27,7 @@ class ItemsViewSet(
 ):
     http_method_names = ["patch", "post", "get", "delete"]
     parser_classes = [MultiPartParser]
+    pagination_class = None
     permission_classes = [AllowAny]
     psq_rules = {
         "list": [Rule([AllowAny], ItemsSerializer)],
