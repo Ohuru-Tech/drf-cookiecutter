@@ -24,7 +24,7 @@ class Dev(Common):
     DATABASES = {
         "default": env.db(
             "{{ cookiecutter.project_slug | upper() }}_DATABASE_URL_DEV",
-            default=f"sqlite:///{rel('db.sqlite3')}",
+            default=f"{{ cookiecutter.dev_db_url }}",
         )
     }
 

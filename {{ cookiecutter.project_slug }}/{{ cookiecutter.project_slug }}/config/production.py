@@ -19,7 +19,7 @@ class Prod(Common):
     DATABASES = {
         "default": env.db(
             "{{ cookiecutter.project_slug | upper() }}_DATABASE_URL_PROD",
-            default="psql://postgres:@database:5432/{{ cookiecutter.project_slug }}_db",
+            default="{{ cookiecutter.prod_db_url }}",
         )
     }
 
