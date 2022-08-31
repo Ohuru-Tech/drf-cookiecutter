@@ -53,7 +53,7 @@ pip install -r requirements_Dev.txt
 Copy `.env` file from example file and set your settings:
 
 ```bash
-cp .env.example .env
+cp .env.template .env
 ```
 
 Run migrations:
