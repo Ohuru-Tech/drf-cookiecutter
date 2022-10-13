@@ -51,6 +51,10 @@ Most of the configurations in the project are based on environment variables, yo
 
 You can still run the project without creating any of those files because there are defaults available to almost all of the required settings but, you will need to set up the db instances, rabbit mq (in case you want to use celery) and make sure the settings match the ones used by default in the configurations. It is recommended to always have a `.env` file managing these settings.
 
+NOTE:- The values for `{{ cookiecutter.project_slug | upper() }}_PASSWORD_RESET_URL` and `{{ cookiecutter.project_slug | upper() }}_EMAIL_VERIFICATION_URL` needs to be set in order for these flows to work properly, they make sure that the redirection happens to the frontend URLs for password reset and email verification.
+
+The email verification could either be a page that gets and processes the link and sends the corresponding request to BE for email verification or have a page that waits for an explicit confirmation with the user.
+
 ## Documentation
 The project uses `drf-yasg` to auto-create documentation for the API endpoints, but the generated documentation is not very good, hence, this project uses a custom schema to manage the documentation.
 
