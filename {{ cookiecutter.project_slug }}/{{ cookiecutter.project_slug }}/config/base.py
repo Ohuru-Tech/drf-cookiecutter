@@ -305,6 +305,15 @@ class Common(Configuration):
         "http://localhost:3000/",
     )
 
+    # Frontend URL to be used for email verification
+    EMAIL_VERIFICATION_URL = env.str(
+        "{{ cookiecutter.project_slug | upper() }}_EMAIL_VERIFICATION_URL",
+        None
+    )
+
+    # Override the account adapter to use the custom one
+    ACCOUNT_ADAPTER = "{{ cookiecutter.project_slug }}.apps.accounts.allauth_adapter.CustomAllauthAdapter"
+
     # Mandate the need for an Email Address when registering.
     ACCOUNT_EMAIL_REQUIRED = True
 
