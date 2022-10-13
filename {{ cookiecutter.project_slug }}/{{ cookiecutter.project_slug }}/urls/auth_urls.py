@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.urls import path, re_path
 
 from {{ cookiecutter.project_slug }}.apps.accounts.views import (
+    ResendVerifyEmailView,
     UserLoginView,
     UserLogoutView,
     UserPasswordResetConfirmView,
@@ -35,6 +36,11 @@ rest_auth_urls = [
         "accounts/registration/account-confirm-email/",
         VerifyEmailRegisterView.as_view(),
         name="account_email_verification_sent",
+    ),
+    path(
+        "accounts/registration/account-resend-confirmation-mail/",
+        ResendVerifyEmailView.as_view(),
+        name="account_email_verification_resend",
     ),
     re_path(
         r"^accounts/registration/account-confirm-email/(?P<key>[-:\w]+)/$",  # NOQA
