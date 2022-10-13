@@ -3,7 +3,7 @@
 set -e
 
 function help_text() {
-  cat << 'END'                                                              
+  cat << 'END'
 Docker entrypoint script for API. Unless specified, all commands
 will wait for the database to be ready.
 Usage:
