@@ -37,6 +37,10 @@ class UserRegistrationView(RegisterView):
         return super().post(request, *args, **kwargs)
 
 
+class ResendVerifyEmailView(ResendEmailVerificationView):
+    swagger_schema = None
+
+
 class VerifyEmailRegisterView(VerifyEmailView):
     swagger_schema = None
 
