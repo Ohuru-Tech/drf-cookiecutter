@@ -3,12 +3,13 @@
 set -e
 
 function help_text() {
-  cat << 'END'                                               
-Docker entrypoint script for Celery Beat. Unless specified, all commands
+  cat << 'END'                                                              
+Docker entrypoint script for API. Unless specified, all commands
 will wait for the database to be ready.
 Usage:
   help - print this help text and exit
-  start - start the celery worker
+  init - create an admin user account before starting the server
+  server - start the server
   (anything else) - run the command provided
 END
 }
@@ -27,13 +28,17 @@ sleep 0.1;  # The $COLUMNS variable takes a moment to populate
 
 # Wait for database
 header "WAITING FOR DATABASE"
-python Docker/wait_for_db.py
+python wait_for_db.py
 
 case "$1" in
-  start|"")
-    header "Starting celert beat"
+  init|server|"")
     # Start scheduler and webserver in same container
-    celery -A {{ cookiecutter.project_slug }} beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    python manage.py migrate
+    header "RUNNING MIGRATIONS AND STARTING WSGI SERVER"
+    uwsgi --show-config
+    ;;
+  celery)
+    celery -A {{ cookiecutter.project_slug }} worker --beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
     ;;
   *)
     # The command is something like bash. Just run it in the right environment.
