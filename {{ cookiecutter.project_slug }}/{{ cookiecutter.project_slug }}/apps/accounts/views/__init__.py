@@ -1,4 +1,5 @@
 from {{ cookiecutter.project_slug }}.apps.accounts.views.auth_views import (
+    ResendVerifyEmailView,
     UserLoginView,
     UserLogoutView,
     UserPasswordResetConfirmView,
