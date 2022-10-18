@@ -1,6 +1,10 @@
 # This is here to override the auth views and have custom docs for them
 from allauth.account.views import ConfirmEmailView as AllauthConfirmEmailView
-from dj_rest_auth.registration.views import RegisterView, VerifyEmailView
+from dj_rest_auth.registration.views import (
+    RegisterView,
+    ResendEmailVerificationView,
+    VerifyEmailView,
+)
 from dj_rest_auth.views import (
     LoginView,
     LogoutView,
